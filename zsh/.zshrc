@@ -14,14 +14,18 @@ HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=999999
 
-
-PATH=$PATH:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/.cargo/bin
-
-#export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.9/site-packages/lilac2:/usr/lib/python3.9/site-packages/lilac2/vendor/
-#export PATH=$PATH:/usr/lib/python3.9/site-packages/lilac2/
+typeset -U path  # set unique
+path=(
+    $path
+    $GOPATH
+    $HOME/.yarn/bin
+    $HOME/.local/bin
+    $HOME/.local/share/gem/ruby/3.0.0/bin
+    $HOME/.cargo/bin
+)
 
 # 补全
-fpath=($HOME/dotfiles/zshcompelte $fpath)
+# fpath=($HOME/dotfiles/zshcompelte $fpath)
 zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
 #
@@ -64,7 +68,6 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 zinit snippet OMZP::copyfile
 # zinit snippet OMZP::copydir/copydir.plugin.zsh
 
-
 ## URL tools
 zinit snippet OMZP::urltools
 
@@ -72,7 +75,6 @@ zinit light zsh-users/zsh-history-substring-search
 
 # zsh-history-substring-search
 HISTORY_SUBSTRING_SEARCH_FUZZY='1'
-
 
 export MANPAGER='sh -c "col -bx | bat -pl man --theme=Monokai\ Extended"'
 export MANROFFOPT='-c'
@@ -97,12 +99,10 @@ export DEBUG_CFLAGS="-Og -g -fvar-tracking-assignments"
 export DEBUG_CXXFLAGS="$DEBUG_CFLAGS"
 #DEBUG_RUSTFLAGS="-C debuginfo=2"
 
-
-
 source $HOME/dotfiles/zsh/alias.zsh
 source $HOME/dotfiles/zsh/functions.zsh
 source $HOME/dotfiles/zsh/bindkey.zsh
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 #hash -d config=$XDG_CONFIG_HOME
 #hash -d cache=$XDG_CACHE_HOME
 #hash -d data=$XDG_DATA_HOME
