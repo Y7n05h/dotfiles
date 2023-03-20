@@ -1,0 +1,15 @@
+[core]
+	editor = hx
+	quotepath = false
+	autocrlf = input
+[protocol]
+	version = 2
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
+	external = difft
+[pull]
+	rebase = true
+[init]
+	defaultBranch = master
