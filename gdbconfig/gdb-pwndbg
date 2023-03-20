@@ -1,0 +1,34 @@
+source ~/dotfiles/gdbconfig/pwndbg/gdbinit.py
+
+source ~/dotfiles/gdbconfig/splitmind/gdbinit.py
+
+
+python
+import splitmind
+(splitmind.Mind()
+  .tell_splitter(show_titles=False)
+  .above(display="disasm", size="80%", banner="top")
+  .show("code", on="disasm", banner="none")
+  .right(display="legend", size="55%")
+  .show("stack", on="legend")
+  .show("regs", on="legend")
+  .right(of="main",display="backtrace", size="25%")
+).build(nobanner=True)
+end
+
+source ~/dotfiles/gdbconfig/Pwngdb/pwngdb.py
+source ~/dotfiles/gdbconfig/Pwngdb/angelheap/gdbinit.py
+define hook-run
+python
+import angelheap
+angelheap.init_angelheap()
+end
+end
+
+
+set context-clear-screen on
+set context-code-lines 25
+set context-source-code-lines 20
+set context-stack-lines 20
+set context-sections  "regs args code disasm stack backtrace"
+#set context-sections  "code"

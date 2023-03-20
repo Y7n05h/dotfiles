@@ -1,0 +1,59 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+mouse = true
+middle-click-paste = false
+true-color = true
+cursorline = true
+indent-guides.render = true
+color-modes = true
+auto-save=true
+bufferline="multiple"
+
+[editor.statusline]
+left = ["mode", "diagnostics", "spinner"]
+center = ["file-name", "position", "position-percentage"]
+right = ["selections", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+ignore = true
+git-ignore = true
+git-global = true
+git-exclude = false
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+#'<' = '>'
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+tab = "→"
+
+# At most one section each of 'keys.normal', 'keys.insert' and 'keys.select'
+[keys.normal]
+C-k = "keep_selections"
+K = "hover"
+A-f = ":format"
+# C-o = ":open ~/.config/helix/config.toml" # Maps the Control-o to opening of the helix config file
+
+# [keys.insert]
+# "a-x" = "normal_mode" # maps alt-x to enter normal mode
+# j = { k = "normal_mode" } # maps `jk` to exit insert mode

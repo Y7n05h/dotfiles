@@ -1,0 +1,15 @@
+[submodule "gdbconfig/pwndbg"]
+	path = gdbconfig/pwndbg
+	url = https://github.com/pwndbg/pwndbg.git
+[submodule "gdbconfig/Pwngdb"]
+	path = gdbconfig/Pwngdb
+	url = https://github.com/scwuaptx/Pwngdb.git
+[submodule "gdbconfig/gef"]
+	path = gdbconfig/gef
+	url = https://github.com/hugsy/gef.git
+[submodule "gdbconfig/splitmind"]
+	path = gdbconfig/splitmind
+	url = https://github.com/jerdna-regeiz/splitmind.git
+[submodule "gdbconfig/peda"]
+	path = gdbconfig/peda
+	url = https://github.com/longld/peda.git

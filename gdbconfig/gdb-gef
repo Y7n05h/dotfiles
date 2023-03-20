@@ -1,0 +1,11 @@
+source /home/admin/dotfiles/gdbconfig/gef/gef.py
+
+
+source /home/admin/dotfiles/gdbconfig/Pwngdb/pwngdb.py
+source /home/admin/dotfiles/gdbconfig/Pwngdb/angelheap/gdbinit.py
+define hook-run
+python
+import angelheap
+angelheap.init_angelheap()
+end
+end

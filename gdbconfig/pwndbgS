@@ -1,0 +1,32 @@
+source /home/admin/dotfiles/gdbconfig/pwndbg/gdbinit.py
+
+source /home/admin/dotfiles/gdbconfig/splitmind/gdbinit.py
+
+
+python
+import splitmind
+(splitmind.Mind()
+  .tell_splitter(show_titles=False)
+  .above(display="code", size="80%", banner="top")
+  .right(display="legend", size="55%")
+  .show("disasm", on="legend")
+  .right(of="main",display="backtrace", size="25%")
+  .right(of="main",cmd='tty; tail -f /dev/null', clearing=False)
+).build(nobanner=True)
+end
+
+source /home/admin/dotfiles/gdbconfig/Pwngdb/pwngdb.py
+source /home/admin/dotfiles/gdbconfig/Pwngdb/angelheap/gdbinit.py
+define hook-run
+python
+import angelheap
+angelheap.init_angelheap()
+end
+end
+
+
+set context-clear-screen on
+set context-code-lines 35
+set context-source-code-lines 45
+set context-stack-lines 20
+set context-sections  "disasm args code backtrace"

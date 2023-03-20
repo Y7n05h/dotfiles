@@ -1,0 +1,19 @@
+[build]
+target-dir = ".cargo/target"
+
+[cargo-new]
+name = "Y7n05h"
+email = "<Y7n05h@Y7n05h.dev>"
+
+[profile.dev]
+split-debuginfo = "unpacked"
+# opt-level = 1
+# package."*".opt-level = 3    # override dependencies
+# build-override.opt-level = 3 # override build scripts and proc-macros
+
+# applied through `cargo build --profile release-product`
+[profile.release-product]
+inherits = "release"
+lto = "thin"
+strip = true
+
