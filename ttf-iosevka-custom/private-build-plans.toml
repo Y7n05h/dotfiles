@@ -1,0 +1,18 @@
+[buildPlans.iosevka-custom]
+family = "Iosevka Custom"
+spacing = "fontconfig-mono"
+serifs = "slab"
+no-cv-ss = false
+export-glyph-names = false
+
+  [buildPlans.iosevka-custom.variants]
+  inherits = "ss09"
+
+    [buildPlans.iosevka-custom.variants.design]
+    g = "single-storey-serifless"
+    zero = "dotted"
+    lig-neq = "slightly-slanted"
+    lig-equal-chain = "with-notch"
+
+  [buildPlans.iosevka-custom.ligations]
+  inherits = "clike"

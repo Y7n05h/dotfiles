@@ -1,0 +1,34 @@
+# Maintainer: Y7n05h <Y7n05h(aT)protonmail--d0t--com>
+# Contributor: rydesun <rydesun@gmail.com>
+
+pkgname=ttf-iosevka-custom
+_pkgname=Iosevka
+pkgver=21.1.1
+pkgrel=1
+pkgdesc='Typeface family designed for coding, terminal use and technical documents.'
+arch=('any')
+# groups=("custom")
+license=('custom:OFL-1.1')
+url='https://github.com/be5invis/Iosevka'
+makedepends=('ttfautohint' 'npm')
+source=('private-build-plans.toml'
+	"$pkgname-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz"
+)
+sha256sums=('a6a29e9ab247fb258ff9e482f634b8ce0ae8fb2283653ea44c2cc2b396177539'
+            'feed2a9aae46308024c4090fb4276dc4734dbcc771db35d7c9d79e712c90965f')
+
+build() {
+
+	cd "$_pkgname-$pkgver"
+	cp $srcdir/private-build-plans.toml .
+	npm install
+	npm run build -- ttf::iosevka-custom
+}
+
+package() {
+	cd "$_pkgname-$pkgver"
+	mkdir -p "$pkgdir/usr/share/fonts/iosevka-custom"
+	install -Dm644 dist/iosevka-custom/ttf/*.ttf "$pkgdir/usr/share/fonts/iosevka-custom"
+	mkdir -p "$pkgdir/usr/share/licenses/ttf-iosevka-custom"
+	install -Dm644 LICENSE.md "$pkgdir/usr/share/licenses/ttf-iosevka-custom/license"
+}
