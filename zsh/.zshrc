@@ -31,6 +31,7 @@ zinit light zsh-users/zsh-completions
 #
 # 加载 OMZ 框架及部分插件
 zinit snippet OMZL::completion.zsh
+zinit snippet OMZL::key-bindings.zsh
 # zinit snippet OMZL::history.zsh
 zinit snippet OMZL::clipboard.zsh
 zinit snippet OMZL::theme-and-appearance.zsh
